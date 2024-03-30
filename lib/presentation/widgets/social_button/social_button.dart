@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:studym8/model/enum/social.dart';
+import 'package:studym8/resources/colors/colors.dart';
 
 class SocialButton extends StatelessWidget {
   SocialButton._({required this.data});
@@ -33,7 +34,7 @@ class SocialButton extends StatelessWidget {
         constraints: const BoxConstraints(minWidth: 90.0),
         padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 20.0),
         decoration: BoxDecoration(
-          color: Colors.indigo,
+          color: primaryColor,
           borderRadius: BorderRadius.circular(8.0),
         ),
         child: Column(

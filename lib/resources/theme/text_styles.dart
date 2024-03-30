@@ -43,3 +43,18 @@ const TextStyle courseSubtitle = TextStyle(
     fontWeight: FontWeight.w700,
     fontSize: 16.0,
     height: 19.0 / 16.0);
+const TextStyle semiBold24 = TextStyle(
+    color: Colors.black,
+    fontWeight: FontWeight.w600,
+    fontSize: 24.0,
+    height: 28.0 / 24.0);
+const TextStyle regular16 = TextStyle(
+    color: Colors.black,
+    fontWeight: FontWeight.w400,
+    fontSize: 24.0,
+    height: 1);
+const TextStyle mediumRoboto = TextStyle(
+    color: Colors.black,
+    fontWeight: FontWeight.w500,
+    fontSize: 16.0,
+    height: 18 / 16);

@@ -3,6 +3,7 @@ import 'package:studym8/localization/app_strings_keys.dart';
 import 'package:studym8/presentation/screens/all_courses_screen/all_courses_screen.dart';
 import 'package:studym8/presentation/screens/auth_screens/login_screen/login_screen.dart';
 import 'package:studym8/presentation/widgets/social_button/social_button.dart';
+import 'package:studym8/presentation/widgets/social_button/social_buttons_group.dart';
 import 'package:studym8/resources/images/images.dart';
 import 'package:studym8/resources/theme/text_styles.dart';
 
@@ -41,20 +42,7 @@ class GetYouIn extends StatelessWidget {
                       padding: EdgeInsets.only(bottom: 16.0),
                       child: Text(letGetsYouInText, style: letGetsYouInTitle),
                     ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        SocialButton.google(),
-                        const SizedBox(
-                          width: 24.0,
-                        ),
-                        SocialButton.apple(),
-                        const SizedBox(
-                          width: 24.0,
-                        ),
-                        SocialButton.facebook()
-                      ],
-                    ),
+                    SocialButtonsGroup(),
                   ],
                 ),
                 const Padding(
