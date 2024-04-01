@@ -1,5 +1,7 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:studym8/localization/app_strings_keys.dart';
+import 'package:studym8/presentation/screens/all_courses_screen/all_courses_main_screen.dart';
 import 'package:studym8/presentation/screens/all_courses_screen/all_courses_screen.dart';
 import 'package:studym8/presentation/screens/auth_screens/login_screen/login_screen.dart';
 import 'package:studym8/presentation/widgets/social_button/social_button.dart';
@@ -14,13 +16,16 @@ class GetYouIn extends StatelessWidget {
   Widget build(BuildContext context) {
     void onCourseViewButtonPressed() {
       Navigator.push(context, MaterialPageRoute(builder: (_) {
-        return const AllCoursesScreen();
+        return const AllCoursesMainScreen();
+        // return const AllCoursesScreen();
       }));
     }
 
-    void onSignInButtonPressed() {
+    onSignInButtonPressed({bool isSignup = true}) {
       Navigator.push(context, MaterialPageRoute(builder: (_) {
-        return const LoginScreen();
+        return LoginScreen(
+          isSignUpPage: isSignup,
+        );
       }));
     }
 
@@ -36,9 +41,9 @@ class GetYouIn extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Expanded(child: Image.asset(letsGetYouInImage)),
-                Column(
+                const Column(
                   children: [
-                    const Padding(
+                    Padding(
                       padding: EdgeInsets.only(bottom: 16.0),
                       child: Text(letGetsYouInText, style: letGetsYouInTitle),
                     ),
@@ -66,7 +71,7 @@ class GetYouIn extends StatelessWidget {
                       child: ElevatedButton(
                         onPressed: onSignInButtonPressed,
                         style: ElevatedButton.styleFrom(
-                          padding: EdgeInsets.symmetric(vertical: 16.0),
+                          padding: const EdgeInsets.symmetric(vertical: 16.0),
                           backgroundColor: Colors.indigo,
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(15)),
@@ -81,7 +86,7 @@ class GetYouIn extends StatelessWidget {
                         ),
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 16,
                     ),
                     Expanded(
@@ -110,14 +115,20 @@ class GetYouIn extends StatelessWidget {
                         child:
                             // const Text('New to StudyM8 this?Create Account'),
                             RichText(
-                                text: const TextSpan(
+                                text: TextSpan(
                           text: 'New to StudyM8 this?',
-                          style: TextStyle(color: Colors.black, fontSize: 18),
+                          style: const TextStyle(
+                              color: Colors.black, fontSize: 18),
                           children: <TextSpan>[
                             TextSpan(
-                                text: ' Create Account',
-                                style: TextStyle(
-                                    color: Colors.deepOrange, fontSize: 18))
+                              text: ' Create Account',
+                              style: const TextStyle(
+                                  color: Colors.deepOrange, fontSize: 18),
+                              recognizer: TapGestureRecognizer()
+                                ..onTap = () {
+                                  onSignInButtonPressed(isSignup: false);
+                                },
+                            )
                           ],
                         )),
                       ),

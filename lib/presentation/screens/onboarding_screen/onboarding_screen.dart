@@ -84,7 +84,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   void nextButtonAction() {
     if (counter == data.length - 1) {
       print("goo to next screen");
-      Navigator.push(context, MaterialPageRoute(builder: (_) {
+      Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) {
         return const GetYouIn();
       }));
     } else {

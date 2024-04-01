@@ -1,3 +1,4 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:studym8/presentation/screens/auth_screens/sub_widgets/login_sub_screen.dart';
 import 'package:studym8/presentation/screens/auth_screens/sub_widgets/sign_up_screen.dart';
@@ -7,15 +8,18 @@ import 'package:studym8/resources/colors/colors.dart';
 import 'package:studym8/resources/theme/text_styles.dart';
 
 class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
+  const LoginScreen({required this.isSignUpPage, super.key});
+  final bool isSignUpPage;
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  State<LoginScreen> createState() => _LoginScreenState(this.isSignUpPage);
 }
 
 class _LoginScreenState extends State<LoginScreen> {
   bool passwordVisible = true;
   bool isSignUpPage = true;
+
+  _LoginScreenState(this.isSignUpPage);
   @override
   Widget build(BuildContext context) {
     void onShowPasswordPressed() {
@@ -31,6 +35,7 @@ class _LoginScreenState extends State<LoginScreen> {
     }
 
     final String welcomeText = isSignUpPage ? 'Welcome' : 'Welcome Back';
+    final String pageTitle = isSignUpPage ? 'or Sign up with' : 'or Login with';
 
     return Scaffold(
         body: SafeArea(
@@ -43,7 +48,7 @@ class _LoginScreenState extends State<LoginScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Padding(
-                padding: EdgeInsets.only(bottom: 32.0),
+                padding: const EdgeInsets.only(bottom: 32.0),
                 child: Text(
                   welcomeText,
                   textAlign: TextAlign.center,
@@ -66,13 +71,145 @@ class _LoginScreenState extends State<LoginScreen> {
                         bgColor: !isSignUpPage ? primaryColor : null,
                         onPressed: isSignUpPage ? onLoginPressed : () {}),
                   ]),
+
               isSignUpPage
                   ? SignUpScreen(
                       passwordVisible: passwordVisible,
                       onShowPasswordPressed: onShowPasswordPressed)
                   : LoginSubScreen(
                       passwordVisible: passwordVisible,
-                      onShowPasswordPressed: onShowPasswordPressed)
+                      onShowPasswordPressed: onShowPasswordPressed),
+              Padding(
+                padding: const EdgeInsets.only(bottom: 40.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    const Expanded(child: Divider()),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                      child: Text(
+                        pageTitle,
+                        style: mediumRoboto,
+                      ),
+                    ),
+                    const Expanded(
+                      child: Divider(),
+                    )
+                  ],
+                ),
+              ),
+              const SocialButtonsGroup(),
+              // Center(
+              //   child: Padding(
+              //     padding: const EdgeInsets.only(top: 24.0, bottom: 16.0),
+              //     child: Column(
+              //       children: [
+              //         Padding(
+              //           padding: const EdgeInsets.only(bottom: 16.0),
+              //           child: RichText(
+              //               text: TextSpan(
+              //             text: 'New to StudyM8 this?',
+              //             style: courseTutorName,
+              //             children: <TextSpan>[
+              //               TextSpan(
+              //                   text: ' Create Account',
+              //                   style: courseTutorName.copyWith(
+              //                       color: Colors.deepOrange,
+              //                       fontWeight: FontWeight.w700))
+              //             ],
+              //           )),
+              //         ),
+              //       ],
+              //     ),
+              //   ),
+              // ),
+              Center(
+                child:
+                    // const Text('New to StudyM8 this?Create Account'),
+                    Padding(
+                  padding: const EdgeInsets.only(top: 24.0, bottom: 16.0),
+                  child: Column(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(bottom: 16.0),
+                        child: !isSignUpPage
+                            ? RichText(
+                                text: TextSpan(
+                                text: 'New to StudyM8 this?',
+                                style: courseTutorName,
+                                children: <TextSpan>[
+                                  TextSpan(
+                                    text: ' Create Account',
+                                    style: courseTutorName.copyWith(
+                                        color: Colors.deepOrange,
+                                        fontWeight: FontWeight.w700),
+                                    recognizer: TapGestureRecognizer()
+                                      ..onTap = () {
+                                        setState(() {
+                                          isSignUpPage = !isSignUpPage;
+                                        });
+                                      },
+                                  )
+                                ],
+                              ))
+                            : RichText(
+                                text: TextSpan(
+                                text: 'Already have an account?',
+                                style: courseTutorName,
+                                children: <TextSpan>[
+                                  TextSpan(
+                                    text: ' Login',
+                                    style: courseTutorName.copyWith(
+                                        color: Colors.deepOrange,
+                                        fontWeight: FontWeight.w700),
+                                    recognizer: TapGestureRecognizer()
+                                      ..onTap = () {
+                                        setState(() {
+                                          isSignUpPage = !isSignUpPage;
+                                        });
+                                      },
+                                  )
+                                ],
+                              )),
+                      ),
+                      isSignUpPage
+                          ? Column(
+                              children: [
+                                RichText(
+                                    textAlign: TextAlign.center,
+                                    text: const TextSpan(
+                                      text:
+                                          'By signing into StudyM8 you agree to our ',
+                                      style: courseTutorName,
+                                    )),
+                                RichText(
+                                    textAlign: TextAlign.center,
+                                    text: TextSpan(
+                                      children: <TextSpan>[
+                                        TextSpan(
+                                          text: 'Terms of Service',
+                                          style: courseTutorName.copyWith(
+                                              color: Colors.deepOrange,
+                                              fontWeight: FontWeight.w700),
+                                        ),
+                                        const TextSpan(
+                                            text: ' and ',
+                                            style: courseTutorName),
+                                        TextSpan(
+                                            text: 'Privacy Policy',
+                                            style: courseTutorName.copyWith(
+                                                color: Colors.deepOrange,
+                                                fontWeight: FontWeight.w700))
+                                      ],
+                                    )),
+                              ],
+                            )
+                          : const SizedBox.shrink(),
+                    ],
+                  ),
+                ),
+              ),
             ],
           ),
         ),

@@ -80,51 +80,6 @@ class LoginSubScreen extends StatelessWidget {
             ),
           ],
         ),
-        const Padding(
-          padding: EdgeInsets.only(bottom: 40.0),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            mainAxisSize: MainAxisSize.max,
-            children: [
-              Expanded(child: Divider()),
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 8.0),
-                child: Text(
-                  'or Login with',
-                  style: mediumRoboto,
-                ),
-              ),
-              Expanded(
-                child: Divider(),
-              )
-            ],
-          ),
-        ),
-        const SocialButtonsGroup(),
-        Center(
-          child: Padding(
-            padding: const EdgeInsets.only(top: 24.0, bottom: 16.0),
-            child: Column(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(bottom: 16.0),
-                  child: RichText(
-                      text: TextSpan(
-                    text: 'New to StudyM8 this?',
-                    style: courseTutorName,
-                    children: <TextSpan>[
-                      TextSpan(
-                          text: ' Create Account',
-                          style: courseTutorName.copyWith(
-                              color: Colors.deepOrange,
-                              fontWeight: FontWeight.w700))
-                    ],
-                  )),
-                ),
-              ],
-            ),
-          ),
-        ),
       ],
     );
   }

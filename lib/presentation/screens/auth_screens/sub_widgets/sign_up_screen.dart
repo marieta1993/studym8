@@ -1,4 +1,6 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:studym8/presentation/screens/auth_screens/login_screen/login_screen.dart';
 import 'package:studym8/presentation/screens/profile_screen/profile_screen.dart';
 import 'package:studym8/presentation/widgets/custom_button/custom_button.dart';
 import 'package:studym8/presentation/widgets/social_button/social_buttons_group.dart';
@@ -69,76 +71,59 @@ class SignUpScreen extends StatelessWidget {
             ),
           ],
         ),
-        const Padding(
-          padding: EdgeInsets.only(bottom: 40.0),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            mainAxisSize: MainAxisSize.max,
-            children: [
-              Expanded(child: Divider()),
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 8.0),
-                child: Text(
-                  'or Sign up with',
-                  style: mediumRoboto,
-                ),
-              ),
-              Expanded(
-                child: Divider(),
-              )
-            ],
-          ),
-        ),
-        const SocialButtonsGroup(),
-        Center(
-          child:
-              // const Text('New to StudyM8 this?Create Account'),
-              Padding(
-            padding: const EdgeInsets.only(top: 24.0, bottom: 16.0),
-            child: Column(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(bottom: 16.0),
-                  child: RichText(
-                      text: TextSpan(
-                    text: 'Already have an account?',
-                    style: courseTutorName,
-                    children: <TextSpan>[
-                      TextSpan(
-                          text: ' Login',
-                          style: courseTutorName.copyWith(
-                              color: Colors.deepOrange,
-                              fontWeight: FontWeight.w700))
-                    ],
-                  )),
-                ),
-                RichText(
-                    textAlign: TextAlign.center,
-                    text: const TextSpan(
-                      text: 'By signing into StudyM8 you agree to our ',
-                      style: courseTutorName,
-                    )),
-                RichText(
-                    textAlign: TextAlign.center,
-                    text: TextSpan(
-                      children: <TextSpan>[
-                        TextSpan(
-                            text: 'Terms of Service',
-                            style: courseTutorName.copyWith(
-                                color: Colors.deepOrange,
-                                fontWeight: FontWeight.w700)),
-                        const TextSpan(text: ' and ', style: courseTutorName),
-                        TextSpan(
-                            text: 'Privacy Policy',
-                            style: courseTutorName.copyWith(
-                                color: Colors.deepOrange,
-                                fontWeight: FontWeight.w700))
-                      ],
-                    )),
-              ],
-            ),
-          ),
-        ),
+
+        // Center(
+        //   child:
+        //       // const Text('New to StudyM8 this?Create Account'),
+        //       Padding(
+        //     padding: const EdgeInsets.only(top: 24.0, bottom: 16.0),
+        //     child: Column(
+        //       children: [
+        //         Padding(
+        //           padding: const EdgeInsets.only(bottom: 16.0),
+        //           child: RichText(
+        //               text: TextSpan(
+        //             text: 'Already have an account?',
+        //             style: courseTutorName,
+        //             children: <TextSpan>[
+        //               TextSpan(
+        //                 text: ' Login',
+        //                 style: courseTutorName.copyWith(
+        //                     color: Colors.deepOrange,
+        //                     fontWeight: FontWeight.w700),
+        //                 recognizer: TapGestureRecognizer()..onTap = () {},
+        //               )
+        //             ],
+        //           )),
+        //         ),
+        //         RichText(
+        //             textAlign: TextAlign.center,
+        //             text: const TextSpan(
+        //               text: 'By signing into StudyM8 you agree to our ',
+        //               style: courseTutorName,
+        //             )),
+        //         RichText(
+        //             textAlign: TextAlign.center,
+        //             text: TextSpan(
+        //               children: <TextSpan>[
+        //                 TextSpan(
+        //                   text: 'Terms of Service',
+        //                   style: courseTutorName.copyWith(
+        //                       color: Colors.deepOrange,
+        //                       fontWeight: FontWeight.w700),
+        //                 ),
+        //                 const TextSpan(text: ' and ', style: courseTutorName),
+        //                 TextSpan(
+        //                     text: 'Privacy Policy',
+        //                     style: courseTutorName.copyWith(
+        //                         color: Colors.deepOrange,
+        //                         fontWeight: FontWeight.w700))
+        //               ],
+        //             )),
+        //       ],
+        //     ),
+        //   ),
+        // ),
       ],
     );
   }
