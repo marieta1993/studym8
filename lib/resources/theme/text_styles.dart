@@ -38,6 +38,16 @@ const TextStyle courseTutorName = TextStyle(
     fontWeight: FontWeight.w400,
     fontSize: 16.0,
     height: 19.0 / 16.0);
+const TextStyle mediumRoboto = TextStyle(
+    color: Colors.black,
+    fontWeight: FontWeight.w500,
+    fontSize: 16.0,
+    height: 19.0 / 16.0);
+const TextStyle mediumRoboto12 = TextStyle(
+    color: Colors.black,
+    fontWeight: FontWeight.w500,
+    fontSize: 12.0,
+    height: 14.0 / 12.0);
 const TextStyle courseSubtitle = TextStyle(
     color: Colors.black,
     fontWeight: FontWeight.w700,
@@ -53,8 +63,8 @@ const TextStyle regular16 = TextStyle(
     fontWeight: FontWeight.w400,
     fontSize: 24.0,
     height: 1);
-const TextStyle mediumRoboto = TextStyle(
+const TextStyle regularBold16 = TextStyle(
     color: Colors.black,
-    fontWeight: FontWeight.w500,
+    fontWeight: FontWeight.w700,
     fontSize: 16.0,
     height: 18 / 16);

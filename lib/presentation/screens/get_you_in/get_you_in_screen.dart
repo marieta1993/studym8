@@ -2,7 +2,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:studym8/localization/app_strings_keys.dart';
 import 'package:studym8/presentation/screens/all_courses_screen/all_courses_main_screen.dart';
-import 'package:studym8/presentation/screens/all_courses_screen/all_courses_screen.dart';
+import 'package:studym8/presentation/screens/all_courses_screen/course_individual_screen.dart';
 import 'package:studym8/presentation/screens/auth_screens/login_screen/login_screen.dart';
 import 'package:studym8/presentation/widgets/social_button/social_button.dart';
 import 'package:studym8/presentation/widgets/social_button/social_buttons_group.dart';

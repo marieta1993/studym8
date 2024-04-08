@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:studym8/presentation/screens/profile_screen/profile_homepage_screen.dart';
 import 'package:studym8/presentation/widgets/custom_button/custom_button.dart';
 import 'package:studym8/resources/colors/colors.dart';
 import 'package:studym8/resources/theme/text_styles.dart';
@@ -51,29 +52,41 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       style: semiBold24,
                     ),
                   ),
+                  // if (image != null)
                   InkWell(
+                    borderRadius: BorderRadius.circular(92.0),
                     onTap: onImagePressed,
-                    child: Column(
-                      children: [
-                        if (image != null)
-                          ClipRRect(
-                            borderRadius: BorderRadius.circular(100),
-                            child: Image.file(
-                              //to show image, you type like this.
-                              File(image!.path),
-                              fit: BoxFit.cover,
-                              width: 184,
-                              // width: MediaQuery.of(context).size.width,
-                              height: 184,
-                            ),
-                          ),
-                        if (image == null)
-                          Image.asset(
-                            'resources/images/profile.png',
-                          ),
-                      ],
+                    child: CircleAvatar(
+                      radius: 92.0,
+                      backgroundImage:
+                          AssetImage('resources/images/profile.png'),
+                      foregroundImage:
+                          image != null ? FileImage(File(image!.path)) : null,
                     ),
                   ),
+                  // InkWell(
+                  //   onTap: onImagePressed,
+                  //   child: Column(
+                  //     children: [
+                  //       if (image != null)
+                  //         ClipRRect(
+                  //           borderRadius: BorderRadius.circular(100),
+                  //           child: Image.file(
+                  //             //to show image, you type like this.
+                  //             File(image!.path),
+                  //             fit: BoxFit.cover,
+                  //             width: 184,
+                  //             // width: MediaQuery.of(context).size.width,
+                  //             height: 184,
+                  //           ),
+                  //         ),
+                  //       if (image == null)
+                  //         Image.asset(
+                  //           'resources/images/profile.png',
+                  //         ),
+                  //     ],
+                  //   ),
+                  // ),
                   const Padding(
                     padding: EdgeInsets.symmetric(vertical: 48.0),
                     child: TextField(
@@ -86,7 +99,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 ],
               ),
               CustomButton(
-                  text: 'Continue', onPressed: () {}, bgColor: primaryColor)
+                  text: 'Continue',
+                  onPressed: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (_) {
+                      return const ProfileHomepageScreen();
+                    }));
+                  },
+                  bgColor: primaryColor)
             ],
           ),
         ),

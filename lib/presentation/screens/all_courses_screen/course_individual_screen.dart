@@ -6,14 +6,15 @@ import 'package:studym8/resources/colors/colors.dart';
 import 'package:studym8/resources/images/images.dart';
 import 'package:studym8/resources/theme/text_styles.dart';
 
-class AllCoursesScreen extends StatefulWidget {
-  const AllCoursesScreen({super.key});
+class CourseIndividualScreen extends StatefulWidget {
+  final CourseData data;
+  const CourseIndividualScreen({required this.data, super.key});
 
   @override
-  State<AllCoursesScreen> createState() => _AllCoursesScreenState();
+  State<CourseIndividualScreen> createState() => _CourseIndividualScreenState();
 }
 
-class _AllCoursesScreenState extends State<AllCoursesScreen> {
+class _CourseIndividualScreenState extends State<CourseIndividualScreen> {
   double _rating = 0;
   @override
   Widget build(BuildContext context) {
@@ -65,13 +66,13 @@ class _AllCoursesScreenState extends State<AllCoursesScreen> {
             mainAxisSize: MainAxisSize.max,
             children: [
               Image.asset(
-                courseData.image!,
+                widget.data.image!,
                 fit: BoxFit.fill,
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 8.0),
                 child: Text(
-                  courseData.title,
+                  widget.data.title,
                   style: allCourseHeading,
                 ),
               ),

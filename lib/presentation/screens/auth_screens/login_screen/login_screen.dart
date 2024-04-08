@@ -174,37 +174,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               )),
                       ),
                       isSignUpPage
-                          ? Column(
-                              children: [
-                                RichText(
-                                    textAlign: TextAlign.center,
-                                    text: const TextSpan(
-                                      text:
-                                          'By signing into StudyM8 you agree to our ',
-                                      style: courseTutorName,
-                                    )),
-                                RichText(
-                                    textAlign: TextAlign.center,
-                                    text: TextSpan(
-                                      children: <TextSpan>[
-                                        TextSpan(
-                                          text: 'Terms of Service',
-                                          style: courseTutorName.copyWith(
-                                              color: Colors.deepOrange,
-                                              fontWeight: FontWeight.w700),
-                                        ),
-                                        const TextSpan(
-                                            text: ' and ',
-                                            style: courseTutorName),
-                                        TextSpan(
-                                            text: 'Privacy Policy',
-                                            style: courseTutorName.copyWith(
-                                                color: Colors.deepOrange,
-                                                fontWeight: FontWeight.w700))
-                                      ],
-                                    )),
-                              ],
-                            )
+                          ? buildPrivacyPolicy()
                           : const SizedBox.shrink(),
                     ],
                   ),
@@ -216,4 +186,26 @@ class _LoginScreenState extends State<LoginScreen> {
       ),
     ));
   }
+
+  buildPrivacyPolicy() => Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 16.0),
+        child: RichText(
+            textAlign: TextAlign.center,
+            text: TextSpan(
+                text: 'By signing into StudyM8 you agree to our ',
+                style: courseTutorName,
+                children: [
+                  TextSpan(
+                    text: 'Terms of Service',
+                    style: courseTutorName.copyWith(
+                        color: Colors.deepOrange, fontWeight: FontWeight.w700),
+                  ),
+                  const TextSpan(text: ' and ', style: courseTutorName),
+                  TextSpan(
+                      text: 'Privacy Policy',
+                      style: courseTutorName.copyWith(
+                          color: Colors.deepOrange,
+                          fontWeight: FontWeight.w700))
+                ])),
+      );
 }

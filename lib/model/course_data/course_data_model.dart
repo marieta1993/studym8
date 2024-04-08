@@ -9,6 +9,7 @@ class CourseData {
   final String? instructorRole;
   final String? instructorImage;
   final double? rating;
+  final double? price;
 
   const CourseData(
       {required this.title,
@@ -20,5 +21,6 @@ class CourseData {
       this.instructorRole,
       this.instructorImage,
       this.rating,
+      this.price,
       this.skills});
 }
