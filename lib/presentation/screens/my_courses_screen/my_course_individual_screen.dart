@@ -31,16 +31,6 @@ class MyCourseIndividualScreen extends StatelessWidget {
           appBar: AppBar(
             automaticallyImplyLeading: false,
             centerTitle: true,
-            title: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                Image.asset(
-                  myCourseData.courseData.image,
-                  width: 500,
-                  height: 400,
-                ),
-              ],
-            ),
             bottom: const TabBar(
               labelColor: primaryColor,
               labelStyle: regularBold16,
@@ -52,15 +42,24 @@ class MyCourseIndividualScreen extends StatelessWidget {
               ],
             ),
           ),
-          body: TabBarView(
+          body: Column(
             children: [
-              ListView.builder(
-                  padding: const EdgeInsets.all(20),
-                  itemCount: myCourseData.videos.length,
-                  itemBuilder: (BuildContext context, int index) {
-                    return ListTile();
-                  }),
-              Icon(Icons.directions_transit),
+              Image.asset(
+                myCourseData.courseData.image,
+                width: 500,
+                height: 400,
+              ),
+              TabBarView(
+                children: [
+                  ListView.builder(
+                      padding: const EdgeInsets.all(20),
+                      itemCount: myCourseData.videos.length,
+                      itemBuilder: (BuildContext context, int index) {
+                        return ListTile();
+                      }),
+                  Icon(Icons.directions_transit),
+                ],
+              ),
             ],
           ),
         ));

@@ -61,9 +61,7 @@ class SignUpScreen extends StatelessWidget {
                     text: 'Signup',
                     bgColor: primaryColor,
                     onPressed: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (_) {
-                        return const ProfileScreen();
-                      }));
+                      Navigator.pushNamed(context, '/profile');
                     },
                   ),
                 )

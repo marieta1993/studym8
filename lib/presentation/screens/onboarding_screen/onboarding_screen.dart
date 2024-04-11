@@ -84,9 +84,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   void nextButtonAction() {
     if (counter == data.length - 1) {
       print("goo to next screen");
-      Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) {
-        return const GetYouIn();
-      }));
+      Navigator.pushReplacementNamed(context, '/getyouin');
     } else {
       setState(() {
         if (counter < data.length - 1) {
@@ -97,8 +95,6 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   }
 
   void skipButtonAction() {
-    Navigator.push(context, MaterialPageRoute(builder: (_) {
-      return const GetYouIn();
-    }));
+    Navigator.pushReplacementNamed(context, '/getyouin');
   }
 }

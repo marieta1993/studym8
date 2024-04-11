@@ -6,6 +6,7 @@ import 'package:studym8/presentation/screens/all_courses_screen/course_individua
 import 'package:studym8/presentation/screens/auth_screens/login_screen/login_screen.dart';
 import 'package:studym8/presentation/widgets/social_button/social_button.dart';
 import 'package:studym8/presentation/widgets/social_button/social_buttons_group.dart';
+import 'package:studym8/resources/colors/colors.dart';
 import 'package:studym8/resources/images/images.dart';
 import 'package:studym8/resources/theme/text_styles.dart';
 
@@ -22,11 +23,9 @@ class GetYouIn extends StatelessWidget {
     }
 
     onSignInButtonPressed({bool isSignup = true}) {
-      Navigator.push(context, MaterialPageRoute(builder: (_) {
-        return LoginScreen(
-          isSignUpPage: isSignup,
-        );
-      }));
+      isSignup
+          ? Navigator.pushNamed(context, '/signup')
+          : Navigator.pushNamed(context, '/login');
     }
 
     return Scaffold(
@@ -72,7 +71,7 @@ class GetYouIn extends StatelessWidget {
                         onPressed: onSignInButtonPressed,
                         style: ElevatedButton.styleFrom(
                           padding: const EdgeInsets.symmetric(vertical: 16.0),
-                          backgroundColor: Colors.indigo,
+                          backgroundColor: primaryColor,
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(15)),
                         ),
@@ -94,8 +93,8 @@ class GetYouIn extends StatelessWidget {
                       child: ElevatedButton(
                         onPressed: onCourseViewButtonPressed,
                         style: ElevatedButton.styleFrom(
-                          padding: EdgeInsets.symmetric(vertical: 16.0),
-                          backgroundColor: Colors.indigo,
+                          padding: const EdgeInsets.symmetric(vertical: 16.0),
+                          backgroundColor: primaryColor,
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(15)),
                         ),

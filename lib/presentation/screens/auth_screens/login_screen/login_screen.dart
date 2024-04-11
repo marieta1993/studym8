@@ -8,11 +8,11 @@ import 'package:studym8/resources/colors/colors.dart';
 import 'package:studym8/resources/theme/text_styles.dart';
 
 class LoginScreen extends StatefulWidget {
-  const LoginScreen({required this.isSignUpPage, super.key});
+  const LoginScreen({this.isSignUpPage = true, super.key});
   final bool isSignUpPage;
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState(this.isSignUpPage);
+  State<LoginScreen> createState() => _LoginScreenState(isSignUpPage);
 }
 
 class _LoginScreenState extends State<LoginScreen> {
@@ -71,7 +71,6 @@ class _LoginScreenState extends State<LoginScreen> {
                         bgColor: !isSignUpPage ? primaryColor : null,
                         onPressed: isSignUpPage ? onLoginPressed : () {}),
                   ]),
-
               isSignUpPage
                   ? SignUpScreen(
                       passwordVisible: passwordVisible,
@@ -100,34 +99,8 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
               ),
               const SocialButtonsGroup(),
-              // Center(
-              //   child: Padding(
-              //     padding: const EdgeInsets.only(top: 24.0, bottom: 16.0),
-              //     child: Column(
-              //       children: [
-              //         Padding(
-              //           padding: const EdgeInsets.only(bottom: 16.0),
-              //           child: RichText(
-              //               text: TextSpan(
-              //             text: 'New to StudyM8 this?',
-              //             style: courseTutorName,
-              //             children: <TextSpan>[
-              //               TextSpan(
-              //                   text: ' Create Account',
-              //                   style: courseTutorName.copyWith(
-              //                       color: Colors.deepOrange,
-              //                       fontWeight: FontWeight.w700))
-              //             ],
-              //           )),
-              //         ),
-              //       ],
-              //     ),
-              //   ),
-              // ),
               Center(
-                child:
-                    // const Text('New to StudyM8 this?Create Account'),
-                    Padding(
+                child: Padding(
                   padding: const EdgeInsets.only(top: 24.0, bottom: 16.0),
                   child: Column(
                     children: [

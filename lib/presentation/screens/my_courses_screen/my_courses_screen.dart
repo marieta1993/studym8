@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
+import 'package:flutter/widgets.dart';
 import 'package:studym8/model/course_data/my_course_data_model.dart';
 import 'package:studym8/presentation/screens/my_courses_screen/my_course_individual_screen.dart';
 import 'package:studym8/presentation/screens/my_courses_screen/my_course_item_card.dart';
@@ -12,7 +13,7 @@ class MyCoursesScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final List<MyCourseData> courses = [
+    const List<MyCourseData> courses = [
       MyCourseData(
           id: 1,
           title: 'Introduction to UI Design',
@@ -62,12 +63,7 @@ class MyCoursesScreen extends StatelessWidget {
           duration: '2 hrs 45 mins',
           countOfVideos: 13)
     ];
-    final List<IconData> icons = [
-      Icons.face,
-      Icons.tag_faces,
-      Icons.work,
-      Icons.book
-    ];
+
     return DefaultTabController(
         length: 3,
         initialIndex: 0,
