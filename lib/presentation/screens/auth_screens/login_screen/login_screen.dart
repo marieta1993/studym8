@@ -84,7 +84,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   mainAxisSize: MainAxisSize.max,
                   children: [
-                    const Expanded(child: Divider()),
+                    const Divider(),
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 8.0),
                       child: Text(
@@ -92,9 +92,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         style: mediumRoboto,
                       ),
                     ),
-                    const Expanded(
-                      child: Divider(),
-                    )
+                    const Divider()
                   ],
                 ),
               ),

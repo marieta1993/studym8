@@ -24,15 +24,6 @@ class MyApp extends StatelessWidget {
       ),
       initialRoute: '/',
       onGenerateRoute: onGenerateRoute,
-      routes: {
-        // '/': (context) => const StartScreen(),
-        // '/onboarding': (context) => const OnboardingScreen(),
-        // '/getyouin': (context) => const GetYouIn(),
-        // '/signup': (context) => const LoginScreen(isSignUpPage: true),
-        // '/login': (context) => const LoginScreen(isSignUpPage: false),
-        '/profile': (context) => const ProfileScreen(),
-        '/profilehomepage': (context) => const ProfileHomepageScreen(),
-      },
     );
   }
 

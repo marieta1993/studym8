@@ -54,26 +54,23 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 style: onboardingPageination,
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 16.0),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  Expanded(
-                      child: CustomButton(
-                          text: skip.localized, onPressed: skipButtonAction)),
-                  const SizedBox(
-                    width: 16.0,
-                  ),
-                  Expanded(
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                Expanded(
                     child: CustomButton(
-                      text: next.localized,
-                      onPressed: nextButtonAction,
-                    ),
+                        text: skip.localized, onPressed: skipButtonAction)),
+                const SizedBox(
+                  width: 16.0,
+                ),
+                Expanded(
+                  child: CustomButton(
+                    text: next.localized,
+                    onPressed: nextButtonAction,
                   ),
-                ],
-              ),
+                ),
+              ],
             )
           ],
         ),

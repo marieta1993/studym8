@@ -101,7 +101,10 @@ class MyCoursesScreen extends StatelessWidget {
                                 courseId: courses[index].id);
                           }));
                         },
-                        child: MyCourseItemCard(courseData: courses[index]));
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(vertical: 12.0),
+                          child: MyCourseItemCard(courseData: courses[index]),
+                        ));
                   }),
               Icon(Icons.directions_transit),
               Icon(Icons.directions_bike),

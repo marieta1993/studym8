@@ -27,35 +27,34 @@ class _MyCourseItemCardState extends State<MyCourseItemCard> {
             Image.asset(widget.courseData.image),
             Padding(
               padding: const EdgeInsets.only(left: 16.0),
-              child: Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    Text(
-                      widget.courseData.title,
-                      style: mediumRoboto,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Text(
+                    widget.courseData.title,
+                    style: mediumRoboto,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 8.0),
+                    child: Text(
+                      widget.courseData.duration,
+                      style: courseTutorName,
                     ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 8.0),
-                      child: Text(
-                        widget.courseData.duration,
-                        style: courseTutorName,
-                      ),
+                  ),
+                  SizedBox(
+                    width: 200,
+                    child: LinearProgressIndicator(
+                      value: 1 / widget.courseData.countOfVideos * 10,
+                      color: Colors.white,
+                      backgroundColor: Colors.white,
+                      valueColor: AlwaysStoppedAnimation(primaryColor),
+                      minHeight: 7.0,
+                      borderRadius: BorderRadius.all(Radius.circular(15)),
                     ),
-                    SizedBox(
-                      width: 150,
-                      child: const LinearProgressIndicator(
-                        value: 0.7,
-                        color: Colors.red,
-                        backgroundColor: Colors.black,
-                        valueColor: AlwaysStoppedAnimation(Colors.red),
-                        minHeight: 6.0,
-                      ),
-                    ),
-                    Text('${widget.courseData.countOfVideos.toString()} videos')
-                  ],
-                ),
+                  ),
+                  Text('${widget.courseData.countOfVideos.toString()} videos')
+                ],
               ),
             )
           ],

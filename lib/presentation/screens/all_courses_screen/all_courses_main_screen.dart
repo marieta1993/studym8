@@ -15,7 +15,7 @@ class AllCoursesMainScreen extends StatefulWidget {
 }
 
 class _AllCoursesMainScreenState extends State<AllCoursesMainScreen> {
-  List<CourseData> courcesData = const [
+  List<CourseData> coursesData = const [
     CourseData(
         title: '1 Introduction to UI Design',
         image: courseImage,
@@ -88,6 +88,27 @@ class _AllCoursesMainScreenState extends State<AllCoursesMainScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        toolbarHeight: 100.0,
+        leading: const Icon(
+          Icons.menu,
+          color: primaryColor,
+          size: 28.0,
+        ),
+        title: const Text(
+          textAlign: TextAlign.center,
+          'All Courses',
+          style: letGetsYouInTitle,
+        ),
+        centerTitle: true,
+        actions: const [
+          Icon(
+            Icons.notifications,
+            color: primaryColor,
+            size: 28,
+          )
+        ],
+      ),
       body: SafeArea(
         // child: GridView.builder(gridDelegate: gridDelegate, itemBuilder: itemBuilder)
         child: GridView.count(
@@ -98,7 +119,7 @@ class _AllCoursesMainScreenState extends State<AllCoursesMainScreen> {
           mainAxisSpacing: 8,
           crossAxisCount: 2,
           children: <Widget>[
-            for (CourseData data in courcesData)
+            for (CourseData data in coursesData)
               InkWell(
                   onTap: () {
                     Navigator.push(context, MaterialPageRoute(builder: (_) {

@@ -198,54 +198,51 @@ class _CourseIndividualScreenState extends State<CourseIndividualScreen> {
                   )
                 ],
               ),
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: 34.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [
-                    const Padding(
-                      padding: EdgeInsets.only(bottom: 16.0),
-                      child: Text('Course Instructor', style: courseSubtitle),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  const Padding(
+                    padding: EdgeInsets.only(bottom: 16.0),
+                    child: Text('Course Instructor', style: courseSubtitle),
+                  ),
+                  Row(
+                      mainAxisSize: MainAxisSize.max,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        CircleAvatar(
+                          radius: 50,
+                          backgroundImage:
+                              AssetImage(courseData.instructorImage!),
+                        ),
+                        Expanded(
+                          child: Padding(
+                            padding: const EdgeInsets.only(left: 16.0),
+                            child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    courseData.instructor!,
+                                    style: courseSubtitle,
+                                  ),
+                                  Text(courseData.instructorRole!),
+                                ]),
+                          ),
+                        ),
+                        const Icon(
+                          Icons.keyboard_arrow_right,
+                          size: 34.0,
+                        )
+                      ]),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 16.0),
+                    child: CustomButton(
+                      text: 'Enroll Now - \$50',
+                      bgColor: primaryColor,
+                      onPressed: enrollButtonAction,
                     ),
-                    Row(
-                        mainAxisSize: MainAxisSize.max,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          CircleAvatar(
-                            radius: 50,
-                            backgroundImage:
-                                AssetImage(courseData.instructorImage!),
-                          ),
-                          Expanded(
-                            child: Padding(
-                              padding: const EdgeInsets.only(left: 16.0),
-                              child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      courseData.instructor!,
-                                      style: courseSubtitle,
-                                    ),
-                                    Text(courseData.instructorRole!),
-                                  ]),
-                            ),
-                          ),
-                          const Icon(
-                            Icons.keyboard_arrow_right,
-                            size: 34.0,
-                          )
-                        ]),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 16.0),
-                      child: CustomButton(
-                        text: 'Enroll Now - \$50',
-                        bgColor: primaryColor,
-                        onPressed: enrollButtonAction,
-                      ),
-                    )
-                  ],
-                ),
+                  )
+                ],
               )
             ],
           ),

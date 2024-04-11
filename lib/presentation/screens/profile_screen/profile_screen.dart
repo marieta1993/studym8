@@ -51,7 +51,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       style: semiBold24,
                     ),
                   ),
-                  // if (image != null)
                   InkWell(
                     borderRadius: BorderRadius.circular(92.0),
                     onTap: onImagePressed,
@@ -77,7 +76,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
               CustomButton(
                   text: 'Continue',
                   onPressed: () {
-                    Navigator.pushNamed(context, '/profilehomepage');
+                    Navigator.pushNamed(
+                      context,
+                      '/main',
+                    );
                   },
                   bgColor: primaryColor)
             ],
