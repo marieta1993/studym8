@@ -7,7 +7,7 @@ import 'package:studym8/resources/images/images.dart';
 import 'package:studym8/resources/theme/text_styles.dart';
 
 class CourseIndividualScreen extends StatefulWidget {
-  final CourseData data;
+  final dynamic data;
   const CourseIndividualScreen({required this.data, super.key});
 
   @override

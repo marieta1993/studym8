@@ -5,7 +5,8 @@ class Video {
   final String title;
   final String? duration;
   final bool isDownload;
-  final bool subtitre;
+  final String subtitre;
+
   const Video(
       {required this.title,
       required this.isDownload,

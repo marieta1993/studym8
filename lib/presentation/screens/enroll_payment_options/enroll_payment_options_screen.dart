@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:studym8/model/enum/payment_method.dart';
+import 'package:studym8/presentation/screens/enroll_payment_options/enroll_payment_pin_screen.dart';
 import 'package:studym8/presentation/widgets/custom_button/custom_button.dart';
 import 'package:studym8/resources/colors/colors.dart';
 import 'package:studym8/resources/theme/text_styles.dart';
@@ -74,7 +75,11 @@ class _EnrollPaymentOptionsScreenState
               child: CustomButton(
                 text: 'Enroll Now - \$50',
                 bgColor: primaryColor,
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (_) {
+                    return FilledRoundedPinPut();
+                  }));
+                },
               ),
             )
           ],

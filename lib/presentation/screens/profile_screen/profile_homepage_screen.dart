@@ -8,27 +8,11 @@ import 'package:studym8/presentation/screens/profile_screen/profile_screen.dart'
 import 'package:studym8/presentation/screens/profile_screen/tab_navigator.dart';
 import 'package:studym8/resources/colors/colors.dart';
 import 'package:studym8/resources/theme/text_styles.dart';
+import 'package:studym8/routh/home_custom_route.dart';
+
+import '../../../routh/my_courses_custom_route.dart';
 
 final navigatorKey = GlobalKey<NavigatorState>();
-
-Route<dynamic>? onGenerateTabRoute(RouteSettings settings) {
-  switch (settings.name) {
-    case "/main":
-      return MaterialPageRoute(
-        builder: (context) => const HomepageScreen(),
-        settings: settings,
-      );
-    case "/all_courses":
-      return MaterialPageRoute(
-          builder: (context) => const AllCoursesMainScreen());
-    case "/my_courses":
-      return MaterialPageRoute(
-          builder: (context) => const MyCoursesScreen(),
-          settings: settings,
-          fullscreenDialog: true);
-  }
-  return null;
-}
 
 class ProfileHomepageScreen extends StatefulWidget {
   const ProfileHomepageScreen({super.key});
@@ -44,12 +28,13 @@ class _ProfileHomepageScreenState extends State<ProfileHomepageScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: [
-        TabNavigator(
-          tabNavigatorKey: navigatorKey,
-          currentIndex: _selectedIndex,
-          routeBuilders: onGenerateTabRoute,
-        ),
-        const MyCoursesScreen(),
+        // TabNavigator(
+        //   tabNavigatorKey: navigatorKey,
+        //   currentIndex: _selectedIndex,
+        //   routeBuilders: onGenerateTabRoute,
+        // ),
+        const HomeCustomRoute(),
+        const MyCoursesCustomRoute(),
         const FavoriteScreen(),
         const ProfileScreen()
       ][_selectedIndex],

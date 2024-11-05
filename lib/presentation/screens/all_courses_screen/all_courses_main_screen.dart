@@ -122,9 +122,8 @@ class _AllCoursesMainScreenState extends State<AllCoursesMainScreen> {
             for (CourseData data in coursesData)
               InkWell(
                   onTap: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (_) {
-                      return CourseIndividualScreen(data: data);
-                    }));
+                    Navigator.pushNamed(context, '/course_individual',
+                        arguments: data);
                   },
                   child: CustomCard(data: data)),
           ],
@@ -135,21 +134,5 @@ class _AllCoursesMainScreenState extends State<AllCoursesMainScreen> {
     // Scaffold(
 
     //   body:
-  }
-
-  void navItemOnPressed(int index) {
-    setState(() {
-      _selectedIndex = index;
-      switch (index) {
-        case 0:
-          Navigator.push(context, MaterialPageRoute(builder: (_) {
-            return const ProfileHomepageScreen();
-          }));
-        case 1:
-          Navigator.push(context, MaterialPageRoute(builder: (_) {
-            return const AllCoursesMainScreen();
-          }));
-      }
-    });
   }
 }

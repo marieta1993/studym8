@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:studym8/presentation/screens/auth_screens/login_screen/login_screen.dart';
 import 'package:studym8/presentation/screens/get_you_in/get_you_in_screen.dart';
 import 'package:studym8/presentation/screens/onboarding_screen/onboarding_screen.dart';
 import 'package:studym8/presentation/screens/profile_screen/profile_homepage_screen.dart';
 import 'package:studym8/presentation/screens/profile_screen/profile_screen.dart';
 import 'package:studym8/presentation/screens/start_screen/start_screen.dart';
+import './l10n/app_localizations.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,6 +19,15 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      localizationsDelegates: const [
+        GlobalWidgetsLocalizations.delegate,
+        GlobalMaterialLocalizations.delegate,
+      ],
+      supportedLocales: const [
+        Locale('en', 'US'),
+        Locale('es', 'ES'),
+      ],
+      locale: const Locale('en'),
       title: 'StudyM8',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
@@ -24,6 +35,7 @@ class MyApp extends StatelessWidget {
       ),
       initialRoute: '/',
       onGenerateRoute: onGenerateRoute,
+      debugShowCheckedModeBanner: false,
     );
   }
 
